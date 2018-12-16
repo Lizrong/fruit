@@ -1,0 +1,48 @@
+{% extends 'axf/base.html' %}
+
+
+{% load static %}
+{% block linkscript %}
+     <link rel="stylesheet" type="text/css" href="{% static 'mine/css/login.css'%}" />
+     <script type="text/javascript" charset="utf-8" src="{% static 'mine/js/mine.js' %}"></script>
+{% endblock linkscript%}
+
+
+{% block base %}
+<div id="login">
+    <div id="box">
+        <h3 style="color:red">您的详细信息如下：</h3>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                账号：<input type="text" value="{{ username }}"/>
+
+            </div>
+            <div class="input-group">
+                密码：<input type="password" value="{{ userpwd }}">
+            </div>
+
+            <div class="input-group">
+                昵称：<input type="text" value="{{ usernickname }}">
+            </div>
+
+
+            <div class="input-group">
+                等级：<input type="text" value="{{ userrank }}">
+            </div>
+
+             <div class="input-group">
+                电话：<input type="text" value="{{ userphone }}">
+            </div>
+
+
+             <div class="input-group">
+                地址：<input type="text" value="{{ useraddress }}">
+            </div>
+        </form>
+        <a href="{% url "axf:mine" %}"><p>&lt;返回</p></a>
+    </div>
+</div>
+{% endblock base %}
+
+

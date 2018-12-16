@@ -1,0 +1,74 @@
+{% extends 'axf/base.html' %}
+
+
+{% load static %}
+{% block linkscript %}
+     <link rel="stylesheet" type="text/css" href="{% static 'mine/css/register.css'%}" />
+     <script type="text/javascript" charset="utf-8" src="{% static 'mine/js/register.js' %}"></script>
+{% endblock linkscript%}
+
+
+{% block base %}
+<div id="register">
+    <div id="header">
+        <a href="{% url 'axf:mine' %}"><p>返回</p></a>
+    </div>
+    <form class="form-horizontal" action="{% url 'axf:userreg' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="input-group">
+            <span class="input-group-addon">账号</span>
+            <input id="accunt" type="text" class="form-control" placeholder="账号长度为6到12个字符" aria-describedby="basic-addon1"
+                   name="userAccount">
+            <span id="tip"></span>
+        </div>
+
+        <br/>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1"
+                   name="userPassword">
+            <span id="tip2"></span>
+        </div>
+        <br />
+
+        <div class="input-group">
+            <span class="input-group-addon">昵称</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userNickname">
+        </div>
+        <br/>
+
+        <div class="input-group">
+            <span class="input-group-addon">等级</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userRank">
+        </div>
+
+
+        <br/>
+        <div class="input-group">
+            <span class="input-group-addon">电话</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userPhone">
+        </div>
+        <br/>
+        <div class="input-group">
+            <span class="input-group-addon">地址</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userAddress">
+        </div>
+        <br/>
+        <div class="input-group">
+            <span class="input-group-addon">头像</span>
+            <input required="required" type="file" class="form-control" aria-describedby="basic-addon1" name="userImg">
+        </div>
+        <br/>
+
+        <div class="input-group">
+            <span class="input-group-addon" >注册</span>
+            <input type="submit" class="form-control" aria-describedby="basic-addon1" value="注册">
+        </div>
+    </form>
+</div>
+{% endblock base %}
+
+
+
+
+
